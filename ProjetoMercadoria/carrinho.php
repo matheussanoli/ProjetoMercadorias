@@ -52,7 +52,7 @@ if (isset($_GET['acao'])) {
 
 						$nome = $linha1['DsMercadoria'];
 						$preco = number_format($linha1['PriceMercadoria'],2);
-						$subtotal= number_format($linha1['PriceMercadoria'],2) * $qtd;
+						$subtotal= $linha1['PriceMercadoria'] * $qtd;
 						@$total += $subtotal;
 						$sessao = array($_SESSION['carrinho']);	
 						
@@ -60,7 +60,7 @@ if (isset($_GET['acao'])) {
     				echo '<tr><td>' . $nome . '</td>
 						<td>R$' . $preco . '</td>
 						<td><input type="text" size="3" name="prod['.$id.']" value="'.$qtd.'"> 
-						<td>R$' . number_format($subtotal, 2) . '</td>
+						<td>R$' . number_format($subtotal,2). '</td>
 						<td><a href="?acao=apagar&id='.$id.'" >Remove</a></td></tr>';
 				
 					}
